@@ -1,2 +1,2 @@
-# Javascript_-Learning
+# Javascript-Learning
 Learning Javascript basics from Scratch
