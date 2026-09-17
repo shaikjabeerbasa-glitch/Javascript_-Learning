@@ -1,12 +1,22 @@
-# Intern Sprint Planner
+# 🚀 Intern Sprint Planner
 
-Intern Sprint Planner is a responsive task management dashboard built using HTML, CSS, and Vanilla JavaScript.
+Intern Sprint Planner is a responsive task management web application built using **HTML, CSS, and Vanilla JavaScript**.
 
-The application allows interns or small teams to create, manage, search, filter, and track sprint tasks while viewing task statistics and workload information for each assignee.
+The application helps interns or small teams create, manage, track, and organize sprint tasks. It provides task statistics, filtering, searching, workload information, and task management actions such as edit, delete, complete, and reopen.
 
-## 🚀 Features
+---
 
-### 1. Dashboard Summary
+## 📌 Project Overview
+
+The purpose of this project is to practice JavaScript fundamentals by building a functional task management application without using frameworks, libraries, backend services, or databases.
+
+The application stores tasks as JavaScript objects inside an array and dynamically updates the user interface using DOM manipulation.
+
+---
+
+## ✨ Features
+
+### 📊 Dashboard
 
 The dashboard displays:
 
@@ -15,11 +25,19 @@ The dashboard displays:
 - Completed Tasks
 - Total Estimated Hours
 
-These values are calculated dynamically from the JavaScript task array and update when tasks are added, edited, completed, reopened, or deleted.
+The dashboard automatically updates when tasks are:
 
-### 2. Add New Task
+- Added
+- Edited
+- Completed
+- Reopened
+- Deleted
 
-Users can create a new task with:
+---
+
+### ➕ Add New Task
+
+Users can create a new task by providing:
 
 - Task Title
 - Description
@@ -29,55 +47,61 @@ Users can create a new task with:
 - Estimated Hours
 - Due Date
 
-### 3. Task Validation
+Each task is stored as a JavaScript object inside the tasks array.
 
-The application validates task input before creating a task.
+---
+
+### ✅ Task Validation
+
+The application validates task information before creating a task.
 
 Validation includes:
 
 - Task title cannot be empty
 - Assignee cannot be empty
+- Estimated hours must be greater than 0
 - Estimated hours must be a valid number
-- Estimated hours must be greater than zero
 - Due date is required
 - Due date cannot be in the past
 
-### 4. Dynamic Task List
+Validation messages are displayed on the page.
 
-Tasks are stored in a JavaScript array and displayed dynamically using DOM manipulation.
+---
 
-Each task displays:
-
-- Title
-- Description
-- Assignee
-- Priority
-- Category
-- Estimated Hours
-- Due Date
-- Current Status
-
-Task cards are created using `document.createElement()`.
-
-### 5. Task Actions
+### 📝 Task Management
 
 Each task provides the following actions:
 
-- Mark Complete
-- Reopen
-- Edit
-- Delete
+- **Mark Complete** – Changes a pending task to completed
+- **Reopen** – Changes a completed task back to pending
+- **Edit** – Allows updating task information
+- **Delete** – Removes the selected task
 
-Editing allows the user to update:
+---
+
+### 🔍 Search
+
+Users can search tasks by:
 
 - Task Title
-- Priority
-- Estimated Hours
-- Due Date
+- Assignee
+- Category
 
-### 6. Task Filters
+Search is case-insensitive.
 
-Tasks can be filtered using:
+Example:
+
+Searching for:
+
+`development`
+
+will find tasks belonging to the Development category.
+
+---
+
+### 🔎 Task Filters
+
+The application provides the following filters:
 
 - All
 - Pending
@@ -85,73 +109,101 @@ Tasks can be filtered using:
 - High Priority
 - Overdue
 
-The Overdue filter displays incomplete tasks whose due date has already passed.
+The **Overdue** filter displays incomplete tasks whose due date has already passed.
 
-### 7. Search
+---
 
-Users can search tasks by:
-
-- Title
-- Assignee
-- Category
-
-Search is case-insensitive.
-
-A message is displayed when no matching tasks are found.
-
-### 8. Workload Report
+### 👥 Workload Report
 
 The Workload Report calculates the total estimated hours assigned to each person.
 
 For example:
 
-- Ankit - 5 hours
-- Sam - 4 hours
-- Jones - 3 hours
-- Jabeer - 6 hours
-- Saurav - 5 hours
+```text
+Ankit   → 5 hours
+Sam     → 4 hours
+Jones   → 3 hours
+Jabeer  → 6 hours
+Saurav  → 5 hours
 
-The report is generated dynamically from the task array.
-
-### 9. Light and Dark Mode
+### 🌙 Light / Dark Mode
 
 The application includes a theme toggle that allows users to switch between:
 
-- Light Mode
-- Dark Mode
+Light Mode
+Dark Mode
 
-The theme is changed using JavaScript by adding and removing a CSS class from the body.
+The theme can be changed using the button in the header.
 
-### 10. Responsive Design
+
+📱 Responsive Design
 
 The application is designed to work on:
 
-- Desktop
-- Tablet
-- Mobile
+Desktop
+Laptop
+Tablet
+Mobile devices
 
-CSS media queries are used to adjust the layout for smaller screen sizes.
+CSS media queries are used to adjust the layout for smaller screens.
 
----
 
-## 🛠️ Technologies Used
+🛠️ Technologies Used
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- DOM Manipulation
+This project was created using:
 
-No frameworks or external JavaScript libraries are used.
+HTML5
+CSS3
+JavaScript
+DOM Manipulation
+Array Methods
+JavaScript Objects
 
----
+No external frameworks or libraries were used.
 
-## 📚 JavaScript Concepts Used
 
-This project was built using JavaScript concepts covered during the learning process.
+📂 Project Structure
+intern-sprint-planner/
+│
+├── index.html
+├── style.css
+├── script.js
+└── README.md
 
-### Arrays
+index.html
 
-Tasks are stored in an array:
+Contains the structure of the application, including:
 
-```javascript
-let tasks = [];
+Header
+Dashboard
+Task form
+Search and filters
+Task list
+Workload report
+Footer
+style.css
+
+Contains:
+
+Page layout
+Colors
+Cards
+Buttons
+Forms
+Responsive design
+Light/Dark mode styling
+Hover effects
+script.js
+
+Contains the application logic, including:
+
+Task data
+Adding tasks
+Editing tasks
+Deleting tasks
+Completing/reopening tasks
+Searching
+Filtering
+Dashboard calculations
+Workload calculations
+Theme switching
