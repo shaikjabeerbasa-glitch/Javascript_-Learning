@@ -1,0 +1,1352 @@
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   LIGHT THEME VARIABLES
+===================================================== */
+
+:root {
+
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #8b5cf6;
+
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+
+    --text: #1f2937;
+    --text-light: #6b7280;
+
+    --background: #f4f7ff;
+    --surface: #ffffff;
+
+    --border: #e5e7eb;
+
+    --shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+    --shadow-hover:
+        0 18px 40px rgba(0, 0, 0, 0.14);
+
+    --radius: 18px;
+}
+
+
+/* =====================================================
+   DARK THEME
+===================================================== */
+
+body.dark-mode {
+
+    --primary: #818cf8;
+    --primary-dark: #6366f1;
+    --secondary: #a78bfa;
+
+    --success: #34d399;
+    --warning: #fbbf24;
+    --danger: #f87171;
+    --info: #60a5fa;
+
+    --text: #f8fafc;
+    --text-light: #aeb8c7;
+
+    --background: #0b1220;
+    --surface: #182235;
+
+    --border: #2d3a4e;
+
+    --shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35);
+
+    --shadow-hover:
+        0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(99, 102, 241, 0.10),
+            transparent 35%
+        ),
+        var(--background);
+
+    color: var(--text);
+
+    min-height: 100vh;
+
+    line-height: 1.6;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed,
+            #9333ea
+        );
+
+    color: white;
+
+    padding: 28px 40px;
+
+    box-shadow:
+        0 8px 25px rgba(79, 70, 229, 0.3);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 100;
+}
+
+
+header .container {
+
+    max-width: 1200px;
+
+    margin: 0;
+
+}
+
+
+header h1 {
+
+    font-size: 32px;
+
+    font-weight: 800;
+
+    margin-bottom: 5px;
+
+    letter-spacing: 0.3px;
+}
+
+
+header p {
+
+    color: rgba(255, 255, 255, 0.85);
+
+    font-size: 15px;
+}
+
+
+/* =====================================================
+   DARK MODE BUTTON
+===================================================== */
+
+.theme-toggle {
+
+    border: 2px solid rgba(255, 255, 255, 0.4);
+
+    background:
+        rgba(255, 255, 255, 0.15);
+
+    color: white;
+
+    padding: 11px 18px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    backdrop-filter: blur(10px);
+
+    transition: all 0.3s ease;
+}
+
+
+.theme-toggle:hover {
+
+    background: white;
+
+    color: #4f46e5;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+main.dashboard {
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding: 40px 25px;
+}
+
+
+/* =====================================================
+   DASHBOARD SUMMARY
+===================================================== */
+
+main.dashboard > section:first-child {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+}
+
+
+/*
+   Your HTML currently puts all Summary-card
+   elements inside the first section.
+*/
+
+main.dashboard > section:first-child .Summary-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    box-shadow: var(--shadow);
+
+    transition: all 0.3s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.Summary-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+}
+
+
+.Summary-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* =====================================================
+   SUMMARY ICON
+===================================================== */
+
+.card-Icon {
+
+    width: 58px;
+
+    height: 58px;
+
+    min-width: 58px;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 27px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e0e7ff,
+            #ede9fe
+        );
+}
+
+
+/* Different icons */
+
+.Summary-card:nth-child(2) .card-Icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #fef3c7,
+            #fde68a
+        );
+}
+
+
+.Summary-card:nth-child(3) .card-Icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #d1fae5,
+            #a7f3d0
+        );
+}
+
+
+.Summary-card:nth-child(4) .card-Icon {
+
+    background:
+        linear-gradient(
+            135deg,
+            #dbeafe,
+            #bfdbfe
+        );
+}
+
+
+.Summary-card h3 {
+
+    font-size: 14px;
+
+    color: var(--text-light);
+
+    margin-bottom: 3px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.5px;
+}
+
+
+.Summary-card p {
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    color: var(--text);
+}
+
+
+/* =====================================================
+   GENERAL SECTIONS
+===================================================== */
+
+.section {
+
+    margin-bottom: 40px;
+}
+
+
+.section h2 {
+
+    font-size: 27px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   FORM
+===================================================== */
+
+#taskForm {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+#taskForm::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--primary),
+            var(--secondary)
+        );
+}
+
+
+.form-group {
+
+    margin-bottom: 18px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+
+    color: var(--text);
+}
+
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: all 0.25s ease;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+
+.form-group textarea {
+
+    min-height: 110px;
+
+    resize: vertical;
+}
+
+
+.form-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 20px;
+}
+
+
+/* =====================================================
+   ADD TASK BUTTON
+===================================================== */
+
+.btn {
+
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color: white;
+
+    padding: 13px 24px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    font-size: 15px;
+
+    transition: all 0.3s ease;
+}
+
+
+.btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(99, 102, 241, 0.35);
+}
+
+
+/* =====================================================
+   VALIDATION
+===================================================== */
+
+#validationMessage {
+
+    color: var(--danger);
+
+    background:
+        rgba(239, 68, 68, 0.08);
+
+    border-radius: 8px;
+
+    padding: 8px 12px;
+
+    margin-bottom: 15px;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search-container {
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+
+#searchInput {
+
+    flex: 1;
+
+    padding: 14px 17px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-size: 15px;
+
+    outline: none;
+}
+
+
+#searchInput:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+
+#searchButton {
+
+    min-width: 120px;
+}
+
+
+/* =====================================================
+   FILTER BUTTONS
+===================================================== */
+
+.filter-Container {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+.filter-btn {
+
+    padding: 10px 19px;
+
+    border-radius: 30px;
+
+    border: 1px solid var(--border);
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    transition: all 0.25s ease;
+}
+
+
+.filter-btn:hover {
+
+    border-color: var(--primary);
+
+    color: var(--primary);
+
+    transform: translateY(-2px);
+}
+
+
+.filter-btn.active {
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            var(--secondary)
+        );
+
+    color: white;
+
+    border-color: transparent;
+
+    box-shadow:
+        0 6px 15px rgba(99, 102, 241, 0.25);
+}
+
+
+/* =====================================================
+   TASK LIST
+===================================================== */
+
+#taskList {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 22px;
+}
+
+
+/* =====================================================
+   TASK CARD
+===================================================== */
+
+.task-card {
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-left: 5px solid var(--primary);
+
+    border-radius: var(--radius);
+
+    padding: 24px;
+
+    box-shadow: var(--shadow);
+
+    transition: all 0.3s ease;
+
+    position: relative;
+}
+
+
+.task-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* Task title */
+
+.task-card h3 {
+
+    font-size: 21px;
+
+    margin-bottom: 8px;
+
+    color: var(--text);
+}
+
+
+/* Description */
+
+.task-card > p:first-of-type {
+
+    color: var(--text-light);
+
+    font-size: 15px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =====================================================
+   TASK INFORMATION
+===================================================== */
+
+.task-card p {
+
+    margin-bottom: 8px;
+
+    color: var(--text-light);
+}
+
+
+/* =====================================================
+   BADGES
+===================================================== */
+
+.task-badge {
+
+    display: inline-block;
+
+    padding: 6px 11px;
+
+    border-radius: 20px;
+
+    font-size: 13px !important;
+
+    font-weight: 700;
+
+    margin-right: 6px;
+
+    margin-bottom: 7px !important;
+}
+
+
+/* HIGH */
+
+.priority-high {
+
+    background: #fee2e2;
+
+    color: #b91c1c !important;
+
+    border: 1px solid #fecaca;
+}
+
+
+/* MEDIUM */
+
+.priority-medium {
+
+    background: #fef3c7;
+
+    color: #b45309 !important;
+
+    border: 1px solid #fde68a;
+}
+
+
+/* LOW */
+
+.priority-low {
+
+    background: #dcfce7;
+
+    color: #15803d !important;
+
+    border: 1px solid #bbf7d0;
+}
+
+
+/* CATEGORY */
+
+.category-badge {
+
+    background: #dbeafe;
+
+    color: #1d4ed8 !important;
+
+    border: 1px solid #bfdbfe;
+}
+
+
+/* COMPLETED */
+
+.status-completed {
+
+    background: #d1fae5;
+
+    color: #047857 !important;
+
+    border: 1px solid #a7f3d0;
+}
+
+
+/* PENDING */
+
+.status-pending {
+
+    background: #fef3c7;
+
+    color: #92400e !important;
+
+    border: 1px solid #fde68a;
+}
+
+
+/* OVERDUE */
+
+.overdue-badge {
+
+    background: #fee2e2;
+
+    color: #dc2626 !important;
+
+    border: 1px solid #fecaca;
+
+    animation: overduePulse 1.8s infinite;
+}
+
+
+@keyframes overduePulse {
+
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.2);
+    }
+
+    70% {
+        box-shadow: 0 0 0 7px rgba(239, 68, 68, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+
+/* =====================================================
+   TASK ACTION BUTTONS
+===================================================== */
+
+.task-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.task-actions button {
+
+    border: none;
+
+    padding: 10px 16px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    transition: all 0.25s ease;
+
+    min-width: 95px;
+}
+
+
+.task-actions button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,0.12);
+}
+
+
+/* COMPLETE */
+
+.complete-btn {
+
+    background: #d1fae5;
+
+    color: #047857;
+}
+
+
+/* EDIT */
+
+.edit-btn {
+
+    background: #dbeafe;
+
+    color: #1d4ed8;
+}
+
+
+/* DELETE */
+
+.delete-btn {
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+
+/* =====================================================
+   WORKLOAD REPORT
+===================================================== */
+
+.workload-section {
+
+    margin-top: 50px;
+
+    margin-bottom: 50px;
+
+    padding: 30px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius);
+
+    box-shadow: var(--shadow);
+}
+
+
+.workload-section h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 3px;
+}
+
+
+.workload-section > div:first-child p {
+
+    color: var(--text-light);
+
+    margin-bottom: 22px;
+}
+
+
+#workloadReport {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+
+.workload-card {
+
+    background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6,
+            #a78bfa
+        );
+
+    color: white;
+
+    padding: 25px;
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 10px 25px rgba(99, 102, 241, 0.25);
+
+    transition: all 0.3s ease;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.workload-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    top: -35px;
+
+    right: -25px;
+}
+
+
+.workload-card:hover {
+
+    transform: translateY(-6px) scale(1.02);
+
+    box-shadow:
+        0 16px 35px rgba(99, 102, 241, 0.35);
+}
+
+
+.workload-card h3 {
+
+    color: white;
+
+    font-size: 21px;
+
+    margin-bottom: 7px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+.workload-card p {
+
+    color: white;
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+   EMPTY MESSAGE
+===================================================== */
+
+.empty-message {
+
+    text-align: center;
+
+    padding: 35px;
+
+    color: var(--text-light);
+
+    background: var(--surface);
+
+    border: 1px dashed var(--border);
+
+    border-radius: 14px;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #312e81,
+            #581c87
+        );
+
+    color: white;
+
+    text-align: center;
+
+    padding: 35px 20px;
+
+    margin-top: 30px;
+}
+
+
+.footer p {
+
+    margin: 5px;
+
+    color: rgba(255,255,255,0.8);
+}
+
+
+.footer p:first-child {
+
+    color: white;
+
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    main.dashboard > section:first-child {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+
+    #taskList {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    #workloadReport {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+    header {
+
+        padding: 20px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        text-align: center;
+    }
+
+
+    header .container {
+
+        max-width: 100%;
+    }
+
+
+    header h1 {
+
+        font-size: 25px;
+    }
+
+
+    .theme-toggle {
+
+        width: 100%;
+    }
+
+
+    main.dashboard {
+
+        padding: 25px 15px;
+    }
+
+
+    main.dashboard > section:first-child {
+
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+
+    .form-row {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+
+    #taskForm {
+
+        padding: 20px;
+    }
+
+
+    .search-container {
+
+        flex-direction: column;
+    }
+
+
+    #searchButton {
+
+        width: 100%;
+    }
+
+
+    .filter-Container {
+
+        gap: 8px;
+    }
+
+
+    .filter-btn {
+
+        padding: 9px 14px;
+
+        font-size: 13px;
+    }
+
+
+    #taskList {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .task-card {
+
+        padding: 20px;
+    }
+
+
+    .task-actions {
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+    }
+
+
+    .task-actions button {
+
+        width: 100%;
+    }
+
+
+    .workload-section {
+
+        padding: 20px;
+    }
+
+
+    #workloadReport {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .workload-card {
+
+        padding: 22px;
+    }
+}

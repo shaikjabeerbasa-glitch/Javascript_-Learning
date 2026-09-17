@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intern Sprint Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Intern Sprint Planner</h1>
+            <p>Manage your intership tasks and track your sprint progress.</p>
+        </div>
+        <button id="themeToggle" class="theme-toggle">
+               🌙 Dark Mode
+        </button>
+    </header>
+    <main class="dashboard">
+        
+        <section>
+            <div class ="Summary-card">
+                <div class ="card-Icon">📋</div>
+                <div>
+                  <h3>Total tasks</h3>
+                  <p id="totalTasks">0</p>
+                </div>
+            </div>
+            <div class ="Summary-card">
+                <div class ="card-Icon">⏳</div>
+                <div>
+                  <h3>Pending tasks</h3>
+                  <p id="pendingTasks">0</p>
+                </div>
+            </div>
+            <div class ="Summary-card">
+                <div class ="card-Icon">✅</div>
+                <div>
+                  <h3>Completed tasks</h3>
+                  <p id="completedTasks">0</p>
+                </div>
+            </div>
+            <div class ="Summary-card">
+                <div class ="card-Icon">⏱️</div>
+                <div>
+                  <h3>Total Hours</h3>
+                  <p id="totalHours">0</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class ="section">
+
+            <h2>Add New Task</h2>
+            <form id="taskForm">
+               <div class="form-group">
+                <label for="taskTittle">Task Title</label>
+                  <input
+                    type="text"
+                    id="taskTitle"
+                    placeholder="Enter the Task"
+                  >
+                </div>
+               <div class="form-group">
+                 <label for="taskDescription">Description</label>
+                   <textarea
+                     id="taskDescription"
+                      placeholder="Enter the Description"
+                   ></textarea>
+               </div>
+               <div class="form-group">
+                  <label for="assignee">Assignee Name</label>
+                    <input
+                      type="text"
+                      id="assignee"
+                      placeholder="Enter the assignee name"
+                    >
+               </div>
+              <div class="form-row">
+                  <div class="form-group">
+                      <label for="priority">Priority</label>
+
+                      <select id="priority">
+                        <option value="">select Priorty</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                       </select>
+
+                    </div>
+
+                 <div class="form-group">
+                    <label for="category">Category</label>
+
+                    <select id="category">
+                        <option value="">select Category</option>
+                        <option value="Development">Development</option>
+                        <option value="Testing">Testing</option>
+                        <option value="Research">Research</option>
+                        <option value="Documentation">Documentation</option>
+                    </select>
+
+                  </div>
+
+                </div>
+                
+               <div class="form-row">
+                 <div class="form-group">
+                     <label for="estimatedHours">EstimatedHours</label>
+                      <input 
+                      type="number"
+                      id="estimatedHours"
+                      Placeholder="Exaple: 5"
+                     >
+                 </div>
+
+                 <div class="form-group">
+                    <label for="duedate">Due Date</label>
+                    <input 
+                      type="date"
+                      id="dueDate"
+                    >
+                </div>
+                
+             </div>
+
+             <div id="validationMessage"></div>
+
+                <button type="submit" class="btn">
+                   Add Task
+                </button>
+
+            </form>
+
+        </section>
+
+        <section class="section">
+            <h2>Tasks</h2>
+            <div class="search-container">
+                <input
+                   type="text"
+                   id="searchInput"
+                   placeholder="Search by title, assignee or category"
+                >
+
+                <button id ="searchButton" class="btn">
+                    Search
+                </button>
+            </div>
+
+            <div class="filter-Container">
+                 <button class="filter-btn active" data-filter="all">
+                     All
+                 </button>
+
+                 <button class="filter-btn " data-filter="pending">
+                     Pending
+                 </button>
+
+                 <button class="filter-btn " data-filter="completed">
+                     Completed
+                 </button>
+                 <button class="filter-btn " data-filter="high">
+                     High Priority
+                 </button>
+                 <button class="filter-btn " data-filter="overdue">
+                    Overdue
+                 </button>
+
+            </div>
+
+
+            <div id="taskList"></div>
+            <p id="emptyMessage" class="empty-message">
+                 No Tasks Found.
+            </p>
+        </section>
+
+        <section class="workload-section">
+            <div>
+              <h2>👥 Workload Report</h2>
+              <p>Estimated workload for each assignee</p>
+            </div>
+           <div id="workloadReport"></div>
+        </section>
+
+    </main>
+    <footer class="footer">
+          <p>© 2026 Intern Sprint Planner</p>
+          <p>Built with HTML, CSS & Vanilla JavaScript</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
