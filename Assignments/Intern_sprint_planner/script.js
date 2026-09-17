@@ -474,6 +474,7 @@ function addTask(event){
     validationMessage.textContent ="";
     renderTasks();
     updateDashboard();
+    generateWorkloadReport();
     document.querySelector("#taskForm").reset();
 
 }
